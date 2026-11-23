@@ -28,6 +28,14 @@
       margin-bottom:12px;
     }
 
+    #siteVersion{
+      font-size:14px;
+      color:#666;
+      margin-top:-8px;
+      margin-bottom:10px;
+    }
+
+
     #search{
       width:100%;
       max-width:700px;
@@ -149,6 +157,7 @@
 
 <div class="searchContainer">
   <div id="siteTitle">🎵 Rewind Music Public Catalogue</div>
+  <div id="siteVersion">Loading...</div>
 
   <input
     id="search"
@@ -166,7 +175,7 @@
 
 let allCards = [];
 let searchTimeout;
-
+/*
 fetch("catalogue.json")
   .then(response => response.json())
   .then(buildCatalogue)
@@ -175,8 +184,19 @@ fetch("catalogue.json")
 
     document.getElementById("songCount")
       .textContent = "Failed to load catalogue";
-  });
+    });
+*/
+  fetch("catalogue.json")
+    .then(response => response.json())
+    .then(data => {
 
+      document.getElementById("siteVersion")
+        .textContent = "v" + data.version;
+
+      buildCatalogue(data.songs);
+
+    });
+    
 function buildCatalogue(songs){
 
   const container =
