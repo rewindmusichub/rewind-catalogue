@@ -30,11 +30,11 @@
 
     #siteVersion{
       font-size:14px;
-      color:#666;
-      margin-top:-8px;
-      margin-bottom:10px;
+      font-weight:normal;
+      color:#444;
+      vertical-align:middle;
+      margin-left:8px;
     }
-
 
     #search{
       width:100%;
@@ -196,7 +196,7 @@ fetch("catalogue.json")
       buildCatalogue(data.songs);
 
     });
-    
+
 function buildCatalogue(songs){
 
   const container =
