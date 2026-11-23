@@ -1,17 +1,317 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Rewind Music Catalogue</h1>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  <style>
 
-<div id="result">Loading...</div>
+    body{
+      font-family:Arial,sans-serif;
+      background:#f5f5f5;
+      margin:20px;
+    }
+
+    .searchContainer{
+      position:fixed;
+      top:0;
+      left:20px;
+      right:20px;
+      z-index:1000;
+      background:#f5f5f5;
+      padding-top:10px;
+      padding-bottom:5px;
+    }
+
+    #search{
+      width:100%;
+      max-width:700px;
+      padding:18px;
+      font-size:26px;
+      margin-bottom:10px;
+      border:3px solid #4a86e8;
+      border-radius:8px;
+      box-sizing:border-box;
+    }
+    
+    #songCount{
+      color:#000;
+      font-size:16px;
+      font-weight:bold;
+      padding-left:12px;
+      margin-top:0;
+      margin-bottom:4px;
+    }
+
+    .card{
+      background:white;
+      border-radius:8px;
+      padding:24px;
+      margin-bottom:16px;
+      box-shadow:0 2px 8px rgba(0,0,0,.1);
+    }
+    #catalogue{
+      margin-top:125px;
+    }
+    .header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .title{
+      font-size:34px;
+      font-weight:bold;
+      line-height:1.2;
+    }
+
+    .artist{
+      font-size:24px;
+      font-weight:bold;
+      margin-top:6px;
+    }
+
+    .genre{
+      color:#666;
+      font-size:18px;
+      margin-top:4px;
+      margin-bottom:16px;
+    }
+
+    .buy{
+      background:white;
+      color:#15803d;
+      border:2px solid #15803d;
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:6px;
+      white-space:nowrap;
+      font-size:18px;
+      font-weight:bold;
+
+      min-width:100px;
+      text-align:center;
+      box-sizing:border-box;
+      display:inline-block;
+
+
+    }
+    .part{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:10px 0;
+      border-top:1px solid #eee;
+    }
+
+    .part > div{
+      flex:1;
+      min-width:0;
+    }
+    .inst{
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .detail{
+      font-size:18px;
+      color:#444;
+      margin-top:2px;
+    }
+
+    .play{
+      background:white;
+      color:#2563eb;
+      border:2px solid #2563eb;
+      text-decoration:none;
+      padding:12px 18px;
+      border-radius:6px;
+      white-space:nowrap;
+      flex-shrink:0;
+      font-size:18px;
+      font-weight:bold;
+
+      min-width:100px;
+      text-align:center;
+      box-sizing:border-box;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="searchContainer">
+
+  <input
+    id="search"
+    type="search"
+    placeholder="Search songs, artists, genres, instruments or keys..."
+  >
+
+  <div id="songCount">Loading...</div>
+
+</div>
+
+<div id="catalogue"></div>
 
 <script>
+
+let allCards = [];
+let searchTimeout;
+
 fetch("catalogue.json")
-  .then(r => r.json())
-  .then(data => {
-    document.getElementById("result").innerHTML =
-      data.length + " songs loaded";
+  .then(response => response.json())
+  .then(buildCatalogue)
+  .catch(error => {
+    console.error(error);
+
+    document.getElementById("songCount")
+      .textContent = "Failed to load catalogue";
   });
+
+function buildCatalogue(songs){
+
+  const container =
+    document.getElementById("catalogue");
+
+  let html = "";
+
+  songs.forEach(song => {
+
+
+    const searchable =
+    (
+      song.name + " " +
+      song.artist + " " +
+      song.genre + " " +
+      (song.year || "") + " " +
+      song.parts.map(p =>
+        (p.instrument || "") + " " +
+        (p.display || "") + " " +
+        (p.detail || "")
+      ).join(" ")
+    ).toLowerCase();
+    const partsHtml =
+      song.parts.map(p => `
+
+        <div class="part">
+
+          <div>
+
+            <div class="inst">
+              ${p.display}
+            </div>
+
+            <div class="detail">
+              ${p.detail || ""}
+            </div>
+
+          </div>
+
+          <a class="play"
+             href="${p.youtube}"
+             target="_blank">
+             Play
+          </a>
+
+        </div>
+
+      `).join("");
+
+    html += `
+
+      <div class="card"
+           data-search="${searchable.replace(/"/g,'&quot;')}">
+
+        <div class="header">
+
+          <div>
+
+            <div class="title">
+              ${song.name} 🎵
+            </div>
+
+            <div class="artist">
+              ${song.artist}${song.year ? " • " + song.year : ""}
+            </div>
+
+            <div class="genre">
+             ${song.genre}
+            </div>
+
+          </div>
+
+          <a class="buy"
+             href="${song.buy}"
+             target="_blank">
+             Buy
+          </a>
+
+        </div>
+
+        ${partsHtml}
+
+      </div>
+
+    `;
+  });
+
+  container.innerHTML = html;
+
+  allCards = Array.from(
+    document.querySelectorAll(".card")
+  );
+
+  updateCount(allCards.length);
+}
+
+document
+  .getElementById("search")
+  .addEventListener("input", e => {
+
+    clearTimeout(searchTimeout);
+
+    searchTimeout = setTimeout(() => {
+
+      filterCards(
+        e.target.value.trim().toLowerCase()
+      );
+
+    }, 300);
+
+  });
+
+function filterCards(search){
+
+  let visibleCount = 0;
+
+  allCards.forEach(card => {
+
+    const show =
+      search === "" ||
+      card.dataset.search.includes(search);
+
+    card.style.display =
+      show ? "" : "none";
+
+    if(show) {
+      visibleCount++;
+    }
+
+  });
+
+  updateCount(visibleCount);
+}
+
+
+function updateCount(count){
+
+  document.getElementById("songCount")
+    .textContent =
+      count + (count === 1 ? " song found" : " songs found");
+}
+
 </script>
 
 </body>
