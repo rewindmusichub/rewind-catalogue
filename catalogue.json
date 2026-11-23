@@ -40,18 +40,6 @@
     "buy": "https://buymeacoffee.com/rewindmusic/e/303365",
     "parts": [
       {
-        "instrument": "Bb_Part",
-        "display": "🟩🟩 Bb Part",
-        "detail": "Tenor Sax/Clarinet • F/Dm • 1 Flat",
-        "youtube": "https://youtu.be/n6eGe7fnavU"
-      },
-      {
-        "instrument": "Bb_Part_Practice",
-        "display": "🟩🟩 🟨🟨 Bb Part with Lead",
-        "detail": "Tenor Sax/Clarinet • F/Dm • 1 Flat",
-        "youtube": "https://youtu.be/QFOXe6P3XSs"
-      },
-      {
         "instrument": "C_Part",
         "display": "🟦🟦 C Part",
         "detail": "Violin/Flute • Eb/Cm • 3 Flats",
