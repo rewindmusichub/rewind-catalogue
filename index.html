@@ -1,1 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Rewind Music Catalogue</h1>
 
+<div id="result">Loading...</div>
+
+<script>
+fetch("catalogue.json")
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("result").innerHTML =
+      data.length + " songs loaded";
+  });
+</script>
+
+</body>
+</html>
