@@ -327,6 +327,7 @@ document
 
   });
 
+/*
 function filterCards(search){
 
   let visibleCount = 0;
@@ -348,7 +349,42 @@ function filterCards(search){
 
   updateCount(visibleCount);
 }
+*/
+function filterCards(search){
 
+  const terms = search.split(/\s+/).filter(Boolean);
+
+  const includeTerms =
+    terms.filter(t => !t.startsWith("-"));
+
+  const excludeTerms =
+    terms
+      .filter(t => t.startsWith("-"))
+      .map(t => t.substring(1));
+
+  let visibleCount = 0;
+
+  allCards.forEach(card => {
+
+    const text = card.dataset.search;
+
+    const includesMatch =
+      includeTerms.length === 0 ||
+      includeTerms.every(term => text.includes(term));
+
+    const excludesMatch =
+      excludeTerms.every(term => !text.includes(term));
+
+    const show =
+      includesMatch && excludesMatch;
+
+    card.style.display = show ? "" : "none";
+
+    if (show) visibleCount++;
+  });
+
+  updateCount(visibleCount);
+}
 
 function updateCount(count){
 
