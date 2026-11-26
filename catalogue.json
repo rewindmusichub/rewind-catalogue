@@ -1,5 +1,5 @@
 {
-  "version": "1.06",
+  "version": "1.07",
   "songs": [
     {
       "name": "A Christmas Song",
@@ -5228,27 +5228,6 @@
       ]
     },
     {
-      "name": "I Will Survive",
-      "artist": "Gloria Gaynor",
-      "genre": "Pop",
-      "year": 1978,
-      "buy": "https://buymeacoffee.com/rewindmusic/e/211152",
-      "parts": [
-        {
-          "instrument": "C_Part",
-          "display": "🟦🟦 C Part",
-          "detail": "Violin/Flute • C/Am",
-          "youtube": "https://youtu.be/kIML_v7Iz4g"
-        },
-        {
-          "instrument": "Eb_Part",
-          "display": "🟥🟥 Eb Part",
-          "detail": "Alto Sax • A/F#m • 3 Sharps",
-          "youtube": "https://youtu.be/iRbDCx5idTE"
-        }
-      ]
-    },
-    {
       "name": "I Will Survive V2",
       "artist": "Gloria Gaynor",
       "genre": "Pop",
@@ -5266,6 +5245,12 @@
           "display": "🟩🟩 🟨🟨 Bb Part with Lead",
           "detail": "Tenor Sax/Clarinet/Trumpet • D/Bm • 2 Sharps",
           "youtube": "https://youtu.be/VDDg-R2wRZg"
+        },
+        {
+          "instrument": "C_Part",
+          "display": "🟦🟦 C Part",
+          "detail": "Violin/Flute • C/Am",
+          "youtube": "https://youtu.be/UBxOW80bka4"
         },
         {
           "instrument": "Eb_Part",
