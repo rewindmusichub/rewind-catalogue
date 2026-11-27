@@ -1,5 +1,5 @@
 {
-  "version": "1.10",
+  "version": "1.11",
   "songs": [
     {
       "name": "A Christmas Song",
@@ -869,7 +869,7 @@
       "name": "Auld Lang Syne V2",
       "artist": "Traditional",
       "genre": "Celebration",
-      "year": "",
+      "year": 1788,
       "buy": "https://buymeacoffee.com/rewindmusic/e/211090",
       "parts": [
         {
@@ -2210,7 +2210,7 @@
       "name": "Coventry Carol",
       "artist": "Christmas",
       "genre": "Christmas",
-      "year": "",
+      "year": 1591,
       "buy": "https://buymeacoffee.com/rewindmusic/e/482643",
       "parts": [
         {
@@ -2552,7 +2552,7 @@
       "name": "Deck The Halls",
       "artist": "Christmas",
       "genre": "Christmas",
-      "year": "",
+      "year": 1862,
       "buy": "https://buymeacoffee.com/rewindmusic/e/486100",
       "parts": [
         {
@@ -2939,7 +2939,7 @@
       "name": "Drunken Sailor Mashup",
       "artist": "Traditional",
       "genre": "Folk-Rock",
-      "year": "",
+      "year": 1839,
       "buy": "https://buymeacoffee.com/rewindmusic/e/310794",
       "parts": [
         {
@@ -2978,7 +2978,7 @@
       "name": "El Chacacha Del Tren",
       "artist": "El Consorcio",
       "genre": "Latin",
-      "year": "",
+      "year": 1957,
       "buy": "https://buymeacoffee.com/rewindmusic/e/402172",
       "parts": [
         {
@@ -3494,7 +3494,7 @@
       "name": "Flying Carpet",
       "artist": "Lennart Clerwall",
       "genre": "Instrumental",
-      "year": "",
+      "year": 1987,
       "buy": "https://buymeacoffee.com/rewindmusic/e/372298",
       "parts": [
         {
@@ -3632,7 +3632,7 @@
       "name": "Fort Knox",
       "artist": "Lennart Clerwall",
       "genre": "Instrumental",
-      "year": "",
+      "year": 1987,
       "buy": "https://buymeacoffee.com/rewindmusic/e/395552",
       "parts": [
         {
@@ -5183,7 +5183,7 @@
       "name": "I Scream You Scream",
       "artist": "Trad Jazz",
       "genre": "Jazz",
-      "year": "",
+      "year": 1927,
       "buy": "https://buymeacoffee.com/rewindmusic/e/217581",
       "parts": [
         {
@@ -7295,7 +7295,7 @@
       "name": "Mexican Bodega",
       "artist": "Lennart Clerwall",
       "genre": "Instrumental",
-      "year": "",
+      "year": 1987,
       "buy": "https://buymeacoffee.com/rewindmusic/e/373183",
       "parts": [
         {
@@ -11708,7 +11708,7 @@
       "name": "The Golden Sea",
       "artist": "Lennart Clerwall",
       "genre": "Easy Listening",
-      "year": "",
+      "year": 1987,
       "buy": "https://buymeacoffee.com/rewindmusic/e/492835",
       "parts": [
         {
