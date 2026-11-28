@@ -1,5 +1,5 @@
 {
-  "version": "1.11",
+  "version": "1.12",
   "songs": [
     {
       "name": "A Christmas Song",
@@ -14776,6 +14776,27 @@
           "display": "🟥🟥 🟨🟨 Eb Part with Lead",
           "detail": "Alto Sax • D/Bm • 2 Sharps",
           "youtube": "https://youtu.be/Z5138WUHxqo"
+        }
+      ]
+    },
+    {
+      "name": "All I Want for Christmas",
+      "artist": "Spike Jones",
+      "genre": "Christmas",
+      "year": 1950,
+      "buy": "https://buymeacoffee.com/rewindmusic/e/597796",
+      "parts": [
+        {
+          "instrument": "Bb_Part",
+          "display": "🟩🟩 Bb Part",
+          "detail": "Tenor Sax/Clarinet/Trumpet • D/Bm • 2 Sharps",
+          "youtube": "https://youtu.be/QT_CotR4QXs"
+        },
+        {
+          "instrument": "Bb_Part_Practice",
+          "display": "🟩🟩 🟨🟨 Bb Part with Lead",
+          "detail": "Tenor Sax/Clarinet/Trumpet • D/Bm • 2 Sharps",
+          "youtube": "https://youtu.be/5PRlTZ0M89c"
         }
       ]
     },
