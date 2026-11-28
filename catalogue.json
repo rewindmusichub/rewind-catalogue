@@ -1,5 +1,5 @@
 {
-  "version": "1.12",
+  "version": "1.13",
   "songs": [
     {
       "name": "A Christmas Song",
@@ -14797,6 +14797,30 @@
           "display": "🟩🟩 🟨🟨 Bb Part with Lead",
           "detail": "Tenor Sax/Clarinet/Trumpet • D/Bm • 2 Sharps",
           "youtube": "https://youtu.be/5PRlTZ0M89c"
+        },
+        {
+          "instrument": "C_Part",
+          "display": "🟦🟦 C Part",
+          "detail": "Violin/Flute • C/Am",
+          "youtube": "https://youtu.be/3U_qmtHeSfY"
+        },
+        {
+          "instrument": "C_Part_Practice",
+          "display": "🟦🟦 🟨🟨 C Part with Lead",
+          "detail": "Violin/Flute • C/Am",
+          "youtube": "https://youtu.be/6sD1Q3e4Q_U"
+        },
+        {
+          "instrument": "Eb_Part",
+          "display": "🟥🟥 Eb Part",
+          "detail": "Alto Sax • A/F#m • 3 Sharps",
+          "youtube": "https://youtu.be/KONT9t9TjRY"
+        },
+        {
+          "instrument": "Eb_Part_Practice",
+          "display": "🟥🟥 🟨🟨 Eb Part with Lead",
+          "detail": "Alto Sax • A/F#m • 3 Sharps",
+          "youtube": "https://youtu.be/2rDVI4OG3aw"
         }
       ]
     },
